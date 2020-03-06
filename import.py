@@ -12,13 +12,12 @@ columnsNamesToExtract = [
     'imdb_score'
 ]
 
-csvReader = CsvReader('dataset.csv', columnsNamesToExtract)
-csvReader.setChunkSize(2)
+csvReader = CsvReader('dataset.csv', 'Movie', columnsNamesToExtract)
+csvReader.setChunkSize(5)
 csvIterator = iter(csvReader)
-
 
 for movies in csvIterator:
     for movie in movies:
-        print(movie['movie_title'])
+        print(movie.movie_title)
     print("\n")
 
